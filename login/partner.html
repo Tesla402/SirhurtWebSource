@@ -1,0 +1,239 @@
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/css/pricing.css" rel="stylesheet">
+    <link href="assets/css/nav.css" rel="stylesheet">
+    <link href="assets/css/toastr.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="img/asshurt2.png" />
+    <title>Partner Panel - SirHurt</title>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66239905-3">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-66239905-3');
+    </script>
+  </head>
+  <body>
+<div id="mySidenav" class="sidenav">
+  <div id="sidenavcontent">
+<span href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</span>
+  <div class="text-center">
+  <img src="sirhurtlogo.png" width="50px" height="50px">
+<hr>
+<p style="color:white;">USERNAMEHERE</p>
+<div class="text-muted">
+PACKAGETYPEHERE
+</div>
+</div>
+<hr>
+<a href="dashboard.php"><div class="material-icons">home</div> Home</a>
+<a href="faq.php"><div class="material-icons">help_outline</div> FAQ</a>
+<a href="purchase.php"><div class="material-icons">shopping_cart</div> Purchase</a>
+<a href="https://sirhurt.net/login/tracking/tracking.html"><div class="material-icons">shopping_cart</div> Product Tracking</a>
+<a href="https://teespring.com/stores/sirhurt-store"><div class="material-icons">store</div> Merchandise</a>
+<a href="download.php"><div class="material-icons">get_app</div> Downloads</a>
+<a href="https://sirhurt.net/scripthub/"><div class="material-icons">api</div> Script-Hub</a>
+<!--TRIAL-->
+<a href="account.php"><div class="material-icons">account_box</div> Account</a>
+<a href="https://sirhurt.net/login/API.html"><div class="material-icons">api</div> API</a>
+<a href="https://sirhurt.net/TOS.html"><div class="material-icons">bookmark</div> Terms of Service</a>
+<a href="https://sirhurt.net/login/tickets/home.php"><div class="material-icons">confirmation_number</div> Ticket Center</a>
+<!--PARTNERSHIP-->
+<!--PARTNERREVIEW-->
+<!--ADMIN-->
+  </div>
+</div>
+<main role="main" id="main">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand" onclick="openNav()" id="opennav"><span style="font-size:30px;cursor:pointer">&#9776;</span></div>
+    <li class="nav-item align-middle" style="margin-right:20px;">
+<a style="color:white;" id="welcome">Welcome to SirHurt</a>
+</li>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+      <button class="btn btn-outline-danger" type="button">Logout</button>
+    </li>
+    </ul>
+  </nav>
+  <div class="col-md-3">
+  <div class="row colbox">
+  <div class="col-lg-4">
+<h1><span class="material-icons">favorite_border</span></h1>
+  </div>
+  <div class="col-lg-8">
+  <span>Status</span>
+  <h2>UPDATED</h2>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="row">
+<div class="col-lg-4">
+<h1><span class="material-icons">history</span></h1>
+</div>
+<div class="col-lg-8">
+<span>Version</span>
+<h2>VERSIONINFO</h2>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="row">
+<div class="col-lg-4">
+<h1><span class="material-icons">language</span></h1>
+</div>
+<div class="col-lg-8">
+<span>Global Logins</span>
+<h2>LOGINDATA</h2>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="row">
+<div class="col-lg-4">
+<h1><span class="material-icons">how_to_reg</span></h1>
+</div>
+<div class="col-lg-8">
+<span>Total Users</span>
+<h2>SETREGLATER</h2>
+</div>
+</div>
+</div>
+
+
+<div class="clearfix"></div>
+<div class="container" style="margin-top:25px;">
+  <div class="card">
+    <div class="card-header">
+      Advertisement Panel
+    </div>
+<form style="padding:15px;" onsubmit="return false;">
+<div class="form-group">
+<label for="msgAd" id="adMessage">Submit Advertisement For Review</label>
+<input type="text" class="form-control" id="msgAd" aria-describedby="adMessage" placeholder="Advertisement Message Here (\n = newline) (NO_PING = no @here)" required>
+</div>
+
+<div class="row justify-content-center"><button type="submit" class="btn btn-outline-success" onclick="submitAdvertisement()">Submit Ad For Review</button></div>
+</form>
+    </div>
+</div>
+
+
+<div class="clearfix"></div>
+<div class="container" style="margin-top:25px;">
+  <div class="card">
+    <div class="card-header">
+      Whitelist Control Panel
+    </div>
+<form style="padding:15px;" onsubmit="return false;">
+<div class="form-group">
+<label for="tokenbox" id="keyDesc">Request Monthly Whitelist Keys</label>
+<input type="text" class="form-control" id="tokenbox" aria-describedby="keyDesc" placeholder="A lifetime and a 30 day key will be provided. Partner keys do not count towards referrals.">
+</div>
+
+<div class="row justify-content-center"><button type="submit" class="btn btn-outline-success" onclick="requestKeys()">Request Monthly Keys</button></div>
+</form>
+    </div>
+</div>
+
+
+</main>
+<footer class="container" style="padding:30px;">
+  <p>&copy; SirHurt 2020</p>
+</footer>
+<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="paymentModalTitle">Purchase SirHurt</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="paymentModalBody">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="paymentModalContinue">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66239905-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66239905-3');
+ </script>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/toastr.js"></script>
+
+<script>
+function submitAdvertisement()
+{
+            var advertisement = document.getElementById("msgAd").value;
+            $.ajax({
+                url: 'js-php/partnership.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    advertisement: advertisement,
+                    type: 'submitAd'
+                },
+                complete: function(resp) {
+                    $("#msgAd").val('');
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+}
+
+function requestKeys()
+{
+            $.ajax({
+                url: 'js-php/partnership.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    type: 'requestKeys'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            $("#tokenbox").val(json.param);
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+}
+</script>
+
+</body>
+</html>

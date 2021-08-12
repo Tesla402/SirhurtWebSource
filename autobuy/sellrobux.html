@@ -1,0 +1,58 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://sirhurt.net/login/assets/css/extra.css" rel="stylesheet">
+    <title>Robux Selling Center - SirHurt</title>
+  </head>
+  <body>
+<main role="main" class="row justify-content-center h-100" id="main">
+<div class="container my-auto" style="width:40rem;">
+  <div class="card row justify-content-center">
+    <div class="card-header">
+      Robux Selling Center
+    </div>
+<label class="text-center" style="margin-top:10px;">After getting your access key, please visit <a style="color:white;text-decoration:underline;" href="https://www.roblox.com/games/6659494100/Data-Center" target="_blank">this game</a> and provide your access key. On purchase prompt, purchase the item. Please note that we manually send out payments to you and it is not automatic.
+<br><br>
+
+<!--NOTIFICATION-->
+
+<a style="color:#0bf488;">Current Robux Purchase Rate: 3.00$/1k</a>
+<br>
+<a style="color:#0bf488;">Minimum: 2500 ROBUX</a>
+<br>
+<a style="color:#0bf488;">Maximum: 214,286 ROBUX</a>
+<br><br>
+<a style="color:#0bf488;">IMPORTANT: Roblox's 30% market fee will be taken out of your calculated payment. (Example: If you sell 1428 ROBUX, we will pay you $3.00 USD because 1428 robux after the 30% tax is 1000.) Robux must be clean and must have the holders permission to sell. By selling your ROBUX, you agree that you are sole owner of said robux and obtained it through clean methods.</a>
+</label>
+<hr>
+<form style="padding:15px;" action='sellrobux.php' method='post'>
+<div class="form-group">
+<label for="paypalemail" id="keyDesc">Paypal Email</label>
+<input type="paypalemail" name="paypalemail" class="form-control" id="paypalemail" aria-describedby="PayEmail" placeholder="Paypal Email Address" required>
+</div>
+<div class="form-group">
+<label for="username" id="robloxDesc">Roblox Username</label>
+<input type="username" name="username" class="form-control" id="username" aria-describedby="robloxDesc" placeholder="Roblox Username" required>
+</div>
+<div class="form-group">
+<label for="robux" id="fundsRedeem">Amount of ROBUX your selling to us (No commas. Number only.)</label>
+<input type="robux" name="robux" value="2500" class="form-control" id="robux" aria-describedby="fundsRedeem" placeholder="Robux Amount (ex: 1000)" required>
+</div>
+<div class="row justify-content-center"><div class="g-recaptcha" data-sitekey="6Lcy0-EUAAAAABSdY7UBDwYKWGeJ9GN5j61OoBth"></div></div>
+<div class="row justify-content-center"><button type="submit" class="btn btn-outline-success">Submit Information</button></div>
+</form>
+    </div>
+</div>
+</main>
+<footer class="container">
+  <p>&copy; SirHurt 2020</p>
+</footer>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+				<title>Web Scripthub Script Page</title>
+				
+				<meta content="Asshurt is one of the most reliable tools on the market. Asshurt has expanded from beyond just a simple roblox cheat/roblox exploit/roblox hack with uses that expand farther than just a roblox exploit. It comes with a script executor! For the uses of this product, and its price, this program is a steal! We not only provide roblox exploits, but we are also a digital-games marketplace, providing very cheap robux at very low prices! We also offer roblox market services such as robux!" name="description">
+                <meta content="asshurt, asshurt roblox, asshurt exploit, ass hurt, asshurthosting, roblox exploit, roblox, exploit, robux, cheap robux, roblox market, roblox hack, sirhurt, roblox hacks, roblox script executor, roblox script execution, roblox hacks, roblox cheat, best roblox hacking apps, roblox exploits, cheap roblox hacks" name="keywords">
+                <link rel="shortcut icon" type="image/png" href="https://www.sirhurt.net/login/img/sirhurtlogo2.png" />
+				
+				<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+					<link rel="stylesheet" href="assets/css/Minimal-tabs-1.css">
+						<link rel="stylesheet" href="assets/css/Minimal-tabs.css">
+							<link rel="stylesheet" href="assets/css/Pretty-Search-Form.css">
+								<link rel="stylesheet" href="assets/css/styles.css">
+									<link href="https://www.sirhurt.net/login/assets/css/toastr.css" rel="stylesheet">
+									</head>
+									<body style="background: rgb(25,25,25);">
+										<main id="main" class="row justify-content-center h-100" role="role" style="color: rgb(0,0,0);padding-top: 44px;">
+											<div class="container my-auto">
+												<div class="card row justify-content-center" style="background: rgb(42, 42, 42);padding-right: auto;">
+													<img src="assets/img/WebHub_Unknown.png" style="display: block;margin-left: auto;margin-right: auto;width: 20%;margin-bottom: 0px;margin-top: 14px;">
+														<h3 class="text-center" style="margin-bottom: 0px;margin-top: 8px;">Script_Name</h3>
+														<h6 class="text-center" style="margin-bottom: 0px;margin-top: 8px;color: rgb(164,164,164);font-size: 14px;">By Uploader_Name</h6>
+														<div class="text-monospace text-center" style="margin-top: 15px;">
+															<button class="btn btn-success" id="installscript" type="button" style="color: rgb(255,255,255);background: rgb(49,69,54);margin-right: 4px;margin-top: 10px;border-style: none;" onclick="installScript();">Install</button>
+															<!-- CREATOR_BUTTONS -->
+															<!-- STAFF BUTTONS -->
+														</div>
+														<hr style="background: #595959;">
+															<img src="assets/img/error_mark.png" style="display: block;margin-left: auto;margin-right: auto;width: 4%;margin-bottom: 0px;margin-top: 9px;">
+																<h6 class="text-center" style="color: rgb(205,77,77);font-size: 14px;margin-top: 12px;">This script has not yet been reviewed by our staff team. We cannot guarantee unreviewed uploads are functional or safe to use. Use at your own risk.</h6>
+																<hr style="background: #595959;">
+																	<label style="text-align: center;">
+																		<strong>Updated:</strong>&nbsp;4/21/2021
+																		<br>
+																		</label>
+																		<label style="text-align: center;">
+																			<strong>Installs:</strong>&nbsp;INSTALLS_NUM
+																			<br>
+																			</label>
+																			<label style="text-align: center;">
+																				<strong>Tags:</strong>&nbsp;Script_Tags
+																			</label>
+																			<label style="text-align: center;margin-top: 18px;">
+																				<strong>Description:</strong>
+																			</label>
+																			<p style="text-align: center;">Test Description</p>
+																			<div class="text-center"><a class="btn btn-primary btn-sm" role="button" id="nextpage" style="color: rgb(255,255,255);background: rgb(69,71,67);" href="https://sirhurt.net/scripthub/">Back</a></div>
+																		</div>
+																	</div>
+																</main>
+																<script src="assets/js/jquery.min.js"></script>
+																<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+																<script>
+        function deleteScript()
+        {
+                $.ajax({
+                    url: 'ScriptHubHandler.php',
+                    dataType: 'json',
+                    method: 'post',
+                    data: {
+                        scriptid: 'SCRIPTIDREPLACE',
+                        type: 'deleteScript'
+                    },
+                    complete: function(resp) {
+                        var json = JSON.parse(resp.responseText);
+                        switch(json.status){
+                            case "good":
+                                toastr.success(json.param, "Success!");
+                                return false;
+                                break;
+                            case "bad":
+                                toastr.error(json.param, "Error!");
+                                break;
+                        }
+                    }
+                });
+        }   
+            
+        function installScript()
+        {
+                $.ajax({
+                    url: 'ScriptHubHandler.php',
+                    dataType: 'json',
+                    method: 'post',
+                    data: {
+                        scriptid: 'SCRIPTIDREPLACE',
+                        type: 'installScript'
+                    },
+                    complete: function(resp) {
+                        var json = JSON.parse(resp.responseText);
+                        switch(json.status){
+                            case "good":
+                                toastr.success(json.param, "Success!");
+                                location.reload();
+                                return false;
+                                break;
+                            case "bad":
+                                toastr.error(json.param, "Error!");
+                                break;
+                        }
+                    }
+                });
+        } 
+        
+        function ModeratorApproveUpload()
+        {
+                $.ajax({
+                    url: 'ScriptHubHandler.php',
+                    dataType: 'json',
+                    method: 'post',
+                    data: {
+                        scriptid: 'SCRIPTIDREPLACE',
+                        type: 'approveScript'
+                    },
+                    complete: function(resp) {
+                        var json = JSON.parse(resp.responseText);
+                        switch(json.status){
+                            case "good":
+                                toastr.success(json.param, "Success!");
+                                location.reload();
+                                return false;
+                                break;
+                            case "bad":
+                                toastr.error(json.param, "Error!");
+                                break;
+                        }
+                    }
+                });
+        }  
+        
+        function DeclineUpload()
+        {
+                $.ajax({
+                    url: 'ScriptHubHandler.php',
+                    dataType: 'json',
+                    method: 'post',
+                    data: {
+                        scriptid: 'SCRIPTIDREPLACE',
+                        type: 'declineScript'
+                    },
+                    complete: function(resp) {
+                        var json = JSON.parse(resp.responseText);
+                        switch(json.status){
+                            case "good":
+                                toastr.success(json.param, "Success!");
+                                location.reload();
+                                return false;
+                                break;
+                            case "bad":
+                                toastr.error(json.param, "Error!");
+                                break;
+                        }
+                    }
+                });
+        }  
+            
+        function uninstallScript()
+        {
+                $.ajax({
+                    url: 'ScriptHubHandler.php',
+                    dataType: 'json',
+                    method: 'post',
+                    data: {
+                        scriptid: 'SCRIPTIDREPLACE',
+                        type: 'uninstallScript'
+                    },
+                    complete: function(resp) {
+                        var json = JSON.parse(resp.responseText);
+                        switch(json.status){
+                            case "good":
+                                toastr.success(json.param, "Success!");
+                                location.reload();
+                                return false;
+                                break;
+                            case "bad":
+                                toastr.error(json.param, "Error!");
+                                break;
+                        }
+                    }
+                });
+            }    
+    </script>
+    <script src="https://www.sirhurt.net/login/assets/js/toastr.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66239905-3">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-66239905-3');
+     </script>
+</body>
+</html>

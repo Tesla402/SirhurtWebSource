@@ -1,0 +1,330 @@
+`<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/css/login.css" rel="stylesheet">
+    <link href="assets/css/toastr.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="img/asshurt2.png" />
+    <title>Login - SirHurt</title>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66239905-3">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-66239905-3');
+    </script>
+  </head>
+  <body>
+<main role="main">
+<h1 class="display-4 text-center" style="margin-top:55px;">Welcome to SirHurt.</h1>
+<div class="container tab-content" id="login-tabContent" style="width:30rem;margin-top:30px;">
+<div class="row align-items-center tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+<div class="col-md-12">
+<div class="card">
+<div class="card-header">
+Login
+</div>
+<div class="card-body">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+<ul class="list-group list-group-flush">
+<div class="text-center"><img src="sirhurtlogo.png" height="100px" width="100px"></div>
+<form id="login-form" method="post">
+<li class="list-group-item"><label>Username</label><input type="text" id="login-user" class="form-control" placeholder="Your Username" required></li>
+<li class="list-group-item"><label>Password</label><input type="password" id="login-password" class="form-control" placeholder="Your Password" required></li>
+<li class="list-group-item"><label>Account Security Pin</label><input type="password" id="login-securitypin" class="form-control" placeholder="Your Security Pin (Leave blank if none)"></li>
+<li class="list-group-item" onmouseover="$('#remember').tooltip('show');" onmouseout="$('#remember').tooltip('hide');"><input type="checkbox" id="remember_me" style="margin-right:4px;" value="true"><span class="d-inline-block" tabindex="0" id="remember" data-toggle="tooltip" title="Only check this on trusted computers that only you have access to." style="outline:0;"><label for="remember_me" style="user-select:none;">Remember Me</label></span></li>
+<li class="list-group-item" id="login-cap"><div class="g-recaptcha" id="g-recaptcha" data-sitekey="6Lcy0-EUAAAAABSdY7UBDwYKWGeJ9GN5j61OoBth"></div></li>
+</form>
+</ul>
+    </li>
+    <div class="row justify-content-center">
+        <a class="nav-link" id="register-tab" data-toggle="pill" href="#register" role="tab" aria-controls="register">Don't have an account?</a>
+        <a class="nav-link" id="password-reset-tab" data-toggle="pill" href="#password-reset" role="tab" aria-controls="password-reset">Forgot your password?</a>
+        <a class="nav-link" id="usernames-reminder-tab" data-toggle="pill" href="#usernames-reminder" role="tab" aria-controls="usernames-reminder">Forgot your username?</a>
+    </div>
+<div class="text-center" style="margin-top:12px;margin-bottom:12px;"><button class="btn btn-outline-info" onclick="login();">Login to Account</button></div>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="row align-items-center tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+<div class="col-md-12">
+<div class="card">
+<div class="card-header">
+Register
+</div>
+<div class="card-body">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+<ul class="list-group list-group-flush">
+<div class="text-center"><img src="sirhurtlogo2.png" height="100px" width="100px"></div>
+<form id="register-form" method="post">
+<li class="list-group-item"><label>Username</label><input type="text" id="register-user" class="form-control" placeholder="Username" required></li>
+<li class="list-group-item"><label>Email</label><input type="email" id="register-email" class="form-control" placeholder="Email" required></li>
+<li class="list-group-item"><label>Confirm Email</label><input type="email" id="register-confirm-email" class="form-control" placeholder="Confirm Email" required></li>
+<li class="list-group-item"><label>Password</label><input type="password" id="register-password" class="form-control" placeholder="Password" required></li>
+<li class="list-group-item"><label>Confirm Password</label><input type="password" id="register-verify_password" class="form-control" placeholder="Confirm Password" required></li>
+
+<li class="list-group-item" onmouseover="$('#accepted').tooltip('show');" onmouseout="$('#accepted').tooltip('hide');"><input type="checkbox" id="accepted_tos" style="margin-right:4px;" value="true"><span class="d-inline-block" tabindex="0" id="accepted" data-toggle="tooltip" style="outline:0;"><label for="accepted_tos" style="user-select:none;">I agree to the <a target='_blank' href="https://www.sirhurt.net/TOS.html">Terms of Service</a>.</label></span></li>
+
+
+<li class="list-group-item" id="register-cap"></li>
+</form>
+</ul>
+    </li>
+<a class="nav-link" id="login-tab" data-toggle="pill" href="#login" role="tab" aria-controls="login">Already have an account?</a>
+<div class="text-center" style="margin-top:12px;margin-bottom:12px;"><button class="btn btn-outline-info" onclick="register();">Register Account</button></div>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="row align-items-center tab-pane fade" id="password-reset" role="tabpanel" aria-labelledby="password-reset-tab">
+<div class="col-md-12">
+<div class="card">
+<div class="card-header">
+Reset Password
+</div>
+<div class="card-body">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+<ul class="list-group list-group-flush">
+<div class="text-center"><img src="sirhurtlogo2.png" height="100px" width="100px"></div>
+<form id="resetForm" method="post">
+<li class="list-group-item"><label>Username</label><input type="text" id="resetpass-user" class="form-control" placeholder="Your Username" required></li>
+<li class="list-group-item" id="pass-cap"></li>
+</form>
+</ul>
+    </li>
+<a class="nav-link" id="login-tab" data-toggle="pill" href="#login" role="tab" aria-controls="login">Login to your account</a>
+<div class="text-center" style="margin-top:12px;margin-bottom:12px;"><button class="btn btn-outline-info" onclick="resetPassword();">Request Password Reset</button></div>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="row align-items-center tab-pane fade" id="usernames-reminder" role="tabpanel" aria-labelledby="usernames-reminder-tab">
+<div class="col-md-12">
+<div class="card">
+<div class="card-header">
+Usernames Reminder
+</div>
+<div class="card-body">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+<ul class="list-group list-group-flush">
+<div class="text-center"><img src="sirhurtlogo2.png" height="100px" width="100px"></div>
+<form id="forgotForm" method="post">
+<li class="list-group-item"><label>Email Address</label><input type="text" id="forgotusername-email" class="form-control" placeholder="Your Email" required></li>
+<li class="list-group-item" id="usernames-cap"></li>
+</form>
+</ul>
+    </li>
+<a class="nav-link" id="login-tab" data-toggle="pill" href="#login" role="tab" aria-controls="login">Login to your account</a>
+<div class="text-center" id = "requestsbutton" style="margin-top:12px;margin-bottom:12px;"><button class="btn btn-outline-info" onclick="forgotUsername();">Request Usernames List</button></div>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+</main>
+<footer class="container" style="padding:30px;">
+  <p>&copy; SirHurt 2020</p>
+</footer>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="assets/js/toastr.js"></script>
+<script>
+$("#login-tab").click(function(){
+    $("#g-recaptcha").detach().appendTo("#login-cap");
+});
+$("#register-tab").click(function(){
+    $("#g-recaptcha").detach().appendTo("#register-cap");
+});
+$("#password-reset-tab").click(function(){
+    $("#g-recaptcha").detach().appendTo("#pass-cap");
+});
+$("#usernames-reminder-tab").click(function(){
+    $("#g-recaptcha").detach().appendTo("#usernames-cap");
+});
+            function login(){
+                var username = document.getElementById("login-user").value;
+                var password = document.getElementById("login-password").value;
+                var spin = document.getElementById("login-securitypin").value;
+                var rememberme = document.getElementById("remember_me").checked;
+                if(rememberme)
+                {
+                    rememberme = "true";
+                }
+                else
+                {
+                    rememberme = "false";
+                }
+                
+                toastr.success("Logging In - Please Wait -", "Success!");
+                $.ajax({
+                    url: 'js-php/login.php',
+                    dataType: 'json',
+                    method: 'post',
+                    data: {
+                        user: username,
+                        pass: password,
+                        remember: rememberme,
+                        securitypin: spin,
+                        captcha1: grecaptcha.getResponse(),
+                        legacykey: 'INSERTLEGACYKEYHERE',
+                        type: 'login'
+                        
+                    },
+                    complete: function(resp) {
+                        var json = JSON.parse(resp.responseText);
+                        switch(json.status){
+                            case "passreset":
+                                toastr.success(json.param, "Success!");
+                                setTimeout(function() {
+                                    window.location.href = "forcedpasswordreset.php";
+                                    window.location.assign("forcedpasswordreset.php");
+                                    return false;
+                                }, 3000);
+                                break;
+                            case "good":
+                                toastr.success(json.param, "Success!");
+                                setTimeout(function() {
+                                    window.location.href = "dashboard.php";
+                                    window.location.assign("dashboard.php");
+                                    return false;
+                                }, 3000);
+                                break;
+                            case "bad":
+                                grecaptcha.reset();
+                                toastr.error(json.param, "Error!");
+                                break;
+                        }
+                    }
+                });
+            };
+
+            function register(){
+                var username = document.getElementById("register-user").value;
+                var password = document.getElementById("register-password").value;
+                var verify_pass = document.getElementById("register-verify_password").value;
+                var em = document.getElementById("register-email").value;
+                var verify_em = document.getElementById("register-confirm-email").value;
+                
+                var acceptedtos = document.getElementById("accepted_tos").checked;
+                if(acceptedtos)
+                {
+                    acceptedtos = "true";
+                }
+                else
+                {
+                    acceptedtos = "false";
+                }
+
+                $.ajax({
+                    url: 'js-php/login.php',
+                    dataType: 'json',
+                    method: 'post',
+                    data: {
+                        user: username,
+                        pass: password,
+                        vpass: verify_pass,
+                        email: em,
+                        vemail: verify_em,
+                        agreed: acceptedtos,
+						captcha1: grecaptcha.getResponse(),
+						legacykey: 'INSERTLEGACYKEYHERE',
+                        type: 'register'
+                    },
+                    complete: function(resp) {
+                        var json = JSON.parse(resp.responseText);
+                        switch(json.status){
+                            case "good":
+                                toastr.success(json.param, "Success!");
+                                break;
+                            case "bad":
+                                grecaptcha.reset();
+                                toastr.error(json.param, "Error!");
+                                break;
+                        }
+                    }
+                });
+            };
+            function resetPassword()
+            {
+                var username = document.getElementById("resetpass-user").value;
+                toastr.success("Please wait.. submitting info and checking database.", "Sending...");
+                
+                $.ajax({
+                    url: 'js-php/login.php',
+                    dataType: 'json',
+                    method: 'post',
+                    data: {
+                        user: username,
+						captcha1: grecaptcha.getResponse(),
+                        type: 'resetPassword'
+						
+                    },
+                    complete: function(resp) {
+                        var json = JSON.parse(resp.responseText);
+                        switch(json.status){
+                            case "good":
+                                toastr.success(json.param, "Success!");
+                                break;
+                            case "bad":
+                                document.getElementById("submit").disabled = false;
+                                toastr.error(json.param, "Error!");
+                                break;
+                        }
+                    }
+                });
+            };
+            function forgotUsername()
+            {
+                var username = document.getElementById("forgotusername-email").value;
+                toastr.success("Please wait.. submitting info and checking database.", "Sending...");
+                
+                document.getElementById("requestsbutton").disabled = true;
+                
+                $.ajax({
+                    url: 'js-php/login.php',
+                    dataType: 'json',
+                    method: 'post',
+                    data: {
+                        user: username,
+						captcha1: grecaptcha.getResponse(),
+                        type: 'requestUsernames'
+						
+                    },
+                    complete: function(resp) {
+                        var json = JSON.parse(resp.responseText);
+                        switch(json.status){
+                            case "good":
+                                toastr.success(json.param, "Success!");
+                                break;
+                            case "bad":
+                                document.getElementById("requestsbutton").disabled = false;
+                                toastr.error(json.param, "Error!");
+                                break;
+                        }
+                    }
+                });
+            };
+</script>
+</body>
+</html>

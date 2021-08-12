@@ -1,0 +1,600 @@
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/css/pricing.css" rel="stylesheet">
+    <link href="assets/css/nav.css" rel="stylesheet">
+    <link href="assets/css/toastr.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="img/asshurt2.png" />
+    <title>Purchase - SirHurt</title>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66239905-3">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-66239905-3');
+    </script>
+  </head>
+  <body>
+<div id="mySidenav" class="sidenav">
+  <div id="sidenavcontent">
+<span href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</span>
+  <div class="text-center">
+  <img src="sirhurtlogo.png" width="50px" height="50px">
+<hr>
+<p style="color:white;">USERNAMEHERE</p>
+<div class="text-muted">
+PACKAGETYPEHERE
+</div>
+</div>
+<hr>
+<a href="dashboard.php"><div class="material-icons">home</div> Home</a>
+<a href="faq.php"><div class="material-icons">help_outline</div> FAQ</a>
+<a href="purchase.php"><div class="material-icons">shopping_cart</div> Purchase</a>
+<a href="https://sirhurt.net/login/tracking/tracking.html"><div class="material-icons">shopping_cart</div> Product Tracking</a>
+<a href="https://teespring.com/stores/sirhurt-store"><div class="material-icons">store</div> Merchandise</a>
+<a href="download.php"><div class="material-icons">get_app</div> Downloads</a>
+<a href="https://sirhurt.net/scripthub/"><div class="material-icons">api</div> Script-Hub</a>
+<!--TRIAL-->
+<a href="account.php"><div class="material-icons">account_box</div> Account</a>
+<a href="https://sirhurt.net/login/API.html"><div class="material-icons">api</div> API</a>
+<a href="https://sirhurt.net/TOS.html"><div class="material-icons">bookmark</div> Terms of Service</a>
+<a href="https://sirhurt.net/login/tickets/home.php"><div class="material-icons">confirmation_number</div> Ticket Center</a>
+<!--PARTNERSHIP-->
+<!--PARTNERREVIEW-->
+<!--ADMIN-->
+  </div>
+</div>
+<main role="main" id="main">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand" onclick="openNav()" id="opennav"><span style="font-size:30px;cursor:pointer">&#9776;</span></div>
+    <li class="nav-item align-middle" style="margin-right:20px;">
+<a style="color:white;" id="welcome">Welcome to SirHurt</a>
+</li>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+      <button class="btn btn-outline-danger" type="button">Logout</button>
+    </li>
+    </ul>
+  </nav>
+  <div class="col-md-3">
+  <div class="row colbox">
+  <div class="col-lg-4">
+<h1><span class="material-icons">favorite_border</span></h1>
+  </div>
+  <div class="col-lg-8">
+  <span>Status</span>
+  <h2>UPDATED</h2>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="row">
+<div class="col-lg-4">
+<h1><span class="material-icons">history</span></h1>
+</div>
+<div class="col-lg-8">
+<span>Version</span>
+<h2>VERSIONINFO</h2>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="row">
+<div class="col-lg-4">
+<h1><span class="material-icons">language</span></h1>
+</div>
+<div class="col-lg-8">
+<span>Global Logins</span>
+<h2>LOGINDATA</h2>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="row">
+<div class="col-lg-4">
+<h1><span class="material-icons">how_to_reg</span></h1>
+</div>
+<div class="col-lg-8">
+<span>Total Users</span>
+<h2>SETREGLATER</h2>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div class="container" style="margin-top:25px;">
+  <div class="card">
+    <div class="card-header">
+      Redeem Serial Key
+    </div>
+<form style="padding:15px;" onsubmit="return false;">
+<div class="form-group">
+<label for="token" id="keyDesc">Whitelist Key</label>
+<input type="text" class="form-control" id="token" aria-describedby="keyDesc" placeholder="Whitelist Key" required>
+</div>
+<div class="form-group">
+<label for="ReferralUsername" id="referDesc">Referral (Optional)</label>
+<input type="text" class="form-control" id="ReferralUsername" aria-describedby="referDesc" placeholder="OPTIONAL Referrals SirHurt Username">
+</div>
+<div class="row justify-content-center"><button type="submit" class="btn btn-outline-success" onclick="redeemToken()">Redeem Key</button></div>
+</form>
+    </div>
+</div>
+<section style="padding:20px;" id="pricing">
+<div class="container"  style="margin-bottom:20px;">
+<div class="card">
+<div class="card-header">
+Select Your Platform
+</div>
+  <ul class="nav nav-pills mb-3 justify-content-center" id="purchase-tab" role="tablist" style="margin-top:15px;">
+    <li class="nav-item" style="margin-right:10px;margin-left:-10px;">
+      <a class="btn btn-outline-info active" id="purchase-windows-tab" data-toggle="pill" href="#purchase-windows" role="tab" aria-controls="purchase-windows" aria-selected="true">Windows Products</a>
+    </li>
+    <!--<li class="nav-item" style="margin-right:10px;">
+      <a class="btn btn-outline-info" id="purchase-mac-tab" data-toggle="pill" href="#purchase-mac" role="tab" aria-controls="purchase-mac" aria-selected="false">macOS Products</a>
+    </li>-->
+    <li class="nav-item" style="margin-right:10px;">
+      <a class="btn btn-outline-info" id="purchase-robux-tab" data-toggle="pill" href="#purchase-robux" role="tab" aria-controls="purchase-robux" aria-selected="false">Robux <span style="color:green;" id="robuxstock">(Unknown STOCKS)</span></a>
+    </li>
+    <li class="nav-item" style="margin-right:10px;">
+      <a class="btn btn-outline-info"  href="https://sirhurt.net/autobuy/sellingrobux.php" role="tab">Sell Your Robux (3.00$/1k)</a>
+    </li>
+  </ul>
+</div>
+</div>
+  <div class="tab-content" id="purchase-tabContent">
+    <div class="container pricing tab-pane fade show active" id="purchase-windows" role="tabpanel" aria-labelledby="purchase-windows-tab">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card mb-5 mb-lg-0">
+            <div class="card-body">
+              <h5 class="card-title text-muted text-uppercase text-center">Subscription</h5>
+              <h6 class="card-price text-center">$2.50<span class="period">/month</span></h6>
+              <hr>
+              <ul class="fa-ul">
+                <li><span class="material-icons">done</span>Discord Community Access</li>
+                <li><span class="material-icons">done</span>One Month Access</li>
+                <li><div class="material-icons">done</div>24/7 Customer Support</li>
+                <li><div class="material-icons">done</div>Customizable UI</li>
+                <li><div class="material-icons">done</div>Software Updates</li>
+                <li><div class="material-icons">done</div>Feature Requests</li>
+              </ul>
+              <div class="form-group">
+              <label for="paymentmethodsub">Payment Method</label>
+              <select id="paymentmethodsub" class="method" style="width:100%;">
+              <option>PayPal</option>
+              <option>Debit/Credit Card</option>
+              <option>Apple Pay/Google Pay</option>
+              <option>Robux</option>
+              <option>Roblox Collectibles/Limiteds (Premium Only)</option>
+              <option>CashApp</option>
+              </select>
+              </div>
+              <a href="#" id="subbtn" data-purchase-type="sub" data-method="paypal" onclick="purchase(this)" class="btn btn-block btn-primary text-uppercase">Purchase</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-muted text-uppercase text-center">Lifetime</h5>
+              <h6 class="card-price text-center">$10.00<span class="period">/lifetime</span></h6>
+              <hr>
+              <ul class="fa-ul">
+                <li><span class="material-icons">done</span>Discord Community Access</li>
+                <li><span class="material-icons">done</span>Lifetime Access</li>
+                <li><div class="material-icons">done</div>24/7 Customer Support</li>
+                <li><div class="material-icons">done</div>Customizable UI</li>
+                <li><div class="material-icons">done</div>Software Updates</li>
+                <li><div class="material-icons">done</div>Feature Requests</li>
+              </ul>
+              <div class="form-group">
+              <label for="paymentmethodlife">Payment Method</label>
+              <select id="paymentmethodlife" class="method" style="width:100%;">
+              <option>PayPal</option>
+              <option>Debit/Credit Card</option>
+              <option>Apple Pay/Google Pay</option>
+              <option>Robux</option>
+              <option>Roblox Collectibles/Limiteds (Premium Only)</option>
+              <option>Amazon Gift Card - USA</option>
+              <option>Roblox Gift Card</option>
+              <option>Steam Gift Card - UK</option>
+              <option>Bitcoin</option>
+              <option>CashApp</option>
+              </select>
+              </div>
+              <a href="#" id="lifebtn" data-purchase-type="lifetime" data-method="paypal" onclick="purchase(this)" class="btn btn-block btn-primary text-uppercase">Purchase</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container pricing tab-pane fade" id="purchase-mac" role="tabpanel" aria-labelledby="purchase-mac-tab">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card mb-5 mb-lg-0">
+            <div class="card-body">
+              <h5 class="card-title text-muted text-uppercase text-center">Subscription</h5>
+              <h6 class="card-price text-center">$2.50<span class="period">/month</span></h6>
+              <hr>
+              <ul class="fa-ul">
+                <li><span class="material-icons">done</span>Discord Community Access</li>
+                <li><span class="material-icons">done</span>One Month Access</li>
+                <li><div class="material-icons">done</div>24/7 Customer Support</li>
+                <li><div class="material-icons">done</div>Customizable UI</li>
+                <li><div class="material-icons">done</div>Software Updates</li>
+                <li><div class="material-icons">done</div>Feature Requests</li>
+              </ul>
+              <div class="form-group">
+              <label for="paymentmethodsub">Payment Method</label>
+              <select id="paymentmethodsub" class="method" style="width:100%;">
+              <option>PayPal</option>
+              <option>Robux</option>
+              <option>Roblox Collectibles/Limiteds (Premium Only)</option>
+              </select>
+              </div>
+              <a href="#" id="subbtn" data-purchase-type="sub" data-method="paypal" onclick="purchase(this)" class="btn btn-block btn-primary text-uppercase">Purchase</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-muted text-uppercase text-center">Lifetime</h5>
+              <h6 class="card-price text-center">$10.00<span class="period">/lifetime</span></h6>
+              <hr>
+              <ul class="fa-ul">
+                <li><span class="material-icons">done</span>Discord Community Access</li>
+                <li><span class="material-icons">done</span>Lifetime Access</li>
+                <li><div class="material-icons">done</div>24/7 Customer Support</li>
+                <li><div class="material-icons">done</div>Customizable UI</li>
+                <li><div class="material-icons">done</div>Software Updates</li>
+                <li><div class="material-icons">done</div>Feature Requests</li>
+              </ul>
+              <div class="form-group">
+              <label for="paymentmethodlife">Payment Method</label>
+              <select id="paymentmethodlife" class="method" style="width:100%;">
+              <option>PayPal</option>
+              <option>Robux</option>
+              <option>Roblox Collectibles/Limiteds (Premium Only)</option>
+              <option>Amazon Gift Card - USA</option>
+              <option>Roblox Gift Card</option>
+              </select>
+              </div>
+              <a href="#" id="lifebtn" data-purchase-type="lifetime" data-method="paypal" onclick="purchase(this)" class="btn btn-block btn-primary text-uppercase">Purchase</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container pricing tab-pane fade" id="purchase-robux">
+    <div class="col-lg-6">
+  <div class="card mb-5 mb-lg-0">
+    <div class="card-body">
+      <h5 class="card-title text-muted text-uppercase text-center">Robux <span style="color:grey;" id="robuxbackhall">(Backorder)</span></h5>
+      <h6 class="card-price text-center">$5.40<span class="period">/1,000 Robux</span></h6>
+      <hr>
+      <ul class="fa-ul">
+        <li><span class="material-icons">done</span>Clean Robux</li>
+        <li><span class="material-icons">done</span>Instant Payout</li>
+        <li><span class="material-icons">done</span>24/7 Customer Support</li>
+      </ul>
+      <div class="form-group">
+      <label for="rbxamt">Amount</label>
+      <select id="rbxamt" class="method" style="width:100%;">
+      <option>500</option>
+      <option>1,000</option>
+      <option>5,000</option>
+      <option>10,000</option>
+      </select>
+      </div>
+      <a href="#" id="rbxbtn" data-purchase-type="robux" onclick="purchase(this)" class="btn btn-block btn-primary text-uppercase">Purchase</a>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+    </section>
+</main>
+<footer class="container" style="padding:30px;">
+  <p>&copy; SirHurt 2020</p>
+</footer>
+<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="paymentModalTitle">Purchase SirHurt</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="paymentModalBody">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="paymentModalContinue">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66239905-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66239905-3');
+ </script>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/toastr.js"></script>
+<!--<script src="assets/js/purchase15.js"></script>-->
+
+
+<script>
+    function purchase(el) {
+      var type = $(el).data("purchase-type");
+      var method = $(el).data("method");
+      var modal = $("#paymentModal");
+      var modaltitle = $("#paymentModalTitle");
+      var modalbod = $("#paymentModalBody");
+      var modalcontinue = $("#paymentModalContinue");
+      if(type == "sub" && method == "paypal")
+      {
+        modaltitle.html('PayPal Delivery Notice');
+        modalbod.html('The product will be emailed to the email attached to your paypal account, not the one you provide selly.io. Paypal payments are normally delievered almost instantly, however can take up to a day in some circumstances. The email is also sometimes marked as \'spam/junk\' by your email provider. Be sure to check the spam/junk folder in your inbox too! Feel free to contact us if you\'d like help. If you don\'t have access to the email attached to your paypal account, just save the order id and we\'ll retrieve it for you!<br><br>Click continue to be redirected to the PayPal payment page.');
+        modal.modal('toggle');
+        modalcontinue.attr("onclick","redir('https://ashpokeman.selly.store/product/0bf511e9')");
+      }
+      else if(type == "lifetime" && method == "paypal")
+      {
+        modaltitle.html('PayPal Delivery Notice');
+        modalbod.html('The product will be emailed to the email attached to your paypal account, not the one you provide selly.io. Paypal payments are normally delievered almost instantly, however can take up to a day in some circumstances. The email is also sometimes marked as \'spam/junk\' by your email provider. Be sure to check the spam/junk folder in your inbox too! Feel free to contact us if you\'d like help. If you don\'t have access to the email attached to your paypal account, just save the order id and we\'ll retrieve it for you!<br><br>Click continue to be redirected to the PayPal payment page.');
+        modal.modal('toggle');
+        modalcontinue.attr("onclick","redir('https://ashpokeman.selly.store/product/eadc28c6')");
+      }
+      else if((type == "lifetime" || type == "sub") && method == "robux")
+      {
+        modaltitle.html('Purchase with Robux');
+        modalbod.html('You will be taken to a  Roblox game to complete your Robux purchase.<br><br>Click continue to be redirected to the Robux payment game.');
+        modal.modal('toggle');
+        modalcontinue.attr("onclick","redir('https://www.roblox.com/games/6659492006/Package-Handler')");
+      }
+      else if(type == "lifetime" && method == "btc")
+      {
+        modaltitle.html('Purchase with Bitcoin');
+        modalbod.html('Click continue to be redirected to the bitcoin payment page.');
+        modal.modal('toggle');
+        modalcontinue.attr("onclick","redir('https://ashpokeman.selly.store/product/eadc28c6')");
+      }
+      else if (type == "lifetime" && method == "dbc")
+      {
+        modaltitle.html('Credit Card Delivery Notice');
+        modalbod.html('The product will be emailed to the email provided. Credit/Debit card payments are normally delievered almost instantly, however can take up to a day in some circumstances. The email is also sometimes marked as \'spam/junk\' by your email provider. Be sure to check the spam/junk folder in your inbox too! Feel free to contact us if you\'d like help. If you can\'t find the email, just save the order id and we\'ll retrieve it for you!<br><br>Click continue to be redirected to the Credit/Debit card payment page.');
+        modal.modal('toggle');
+        modalcontinue.attr("onclick","redir('https://ashpokeman.selly.store/product/eadc28c6')");  
+      }
+      else if (type == "sub" && method == "dbc")
+      {
+        modaltitle.html('Credit Card Delivery Notice');
+        modalbod.html('The product will be emailed to the email provided. Credit/Debit card payments are normally delievered almost instantly, however can take up to a day in some circumstances. The email is also sometimes marked as \'spam/junk\' by your email provider. Be sure to check the spam/junk folder in your inbox too! Feel free to contact us if you\'d like help. If you can\'t find the email, just save the order id and we\'ll retrieve it for you!<br><br>Click continue to be redirected to the Credit/Debit card payment page.');
+        modal.modal('toggle');
+        modalcontinue.attr("onclick","redir('https://ashpokeman.selly.store/product/0bf511e9')");
+      }
+      else if (type == "lifetime" && method == "cashapp")
+      {
+        modaltitle.html('CashApp Delivery Notice');
+        modalbod.html('The product will be emailed to the email provided. Please note that I have to manually accept a cashapp payment after its sent to me, and as such, it wont instantly marked as purchased until I accept the payment first. Please dont cancel the payment thinking that it didnt go through! I have to accept it by hand. The email is also sometimes marked as \'spam/junk\' by your email provider. Be sure to check the spam/junk folder in your inbox too! Feel free to contact us if you\'d like help. If you can\'t find the email, just save the order id and we\'ll retrieve it for you!<br><br>Click continue to be redirected to the CashApp card payment page.');
+        modal.modal('toggle');
+        modalcontinue.attr("onclick","redir('https://ashpokeman.selly.store/product/eadc28c6')");  
+      }
+      else if (type == "sub" && method == "cashapp")
+      {
+        modaltitle.html('CashApp Delivery Notice');
+        modalbod.html('The product will be emailed to the email provided. Please note that I have to manually accept a cashapp payment after its sent to me, and as such, it wont instantly marked as purchased until I accept the payment first. Please dont cancel the payment thinking that it didnt go through! I have to accept it by hand. The email is also sometimes marked as \'spam/junk\' by your email provider. Be sure to check the spam/junk folder in your inbox too! Feel free to contact us if you\'d like help. If you can\'t find the email, just save the order id and we\'ll retrieve it for you!<br><br>Click continue to be redirected to the CashApp card payment page.');
+        modal.modal('toggle');
+        modalcontinue.attr("onclick","redir('https://ashpokeman.selly.store/product/0bf511e9')");
+      }
+      else if(type == "lifetime" && method == "gc")
+      {
+        modaltitle.html('Purchase with Gift Card');
+        modalbod.html('Please note that some gift cards are region specific. Make sure that your gift card is a USA version so we can redeem it properly.<br><br>Card Submissions can take up to 4 days to be reviewed.<br><br>Click continue to be redirected to the gift card payment page.');
+        modal.modal('toggle');
+        modalcontinue.attr("onclick","redir('https://sirhurt.net/autobuy/cards.html')");
+      }
+      else if(type == "lifetime" && method == "rgc")
+      {
+        modaltitle.html('Purchase with Roblox Gift Card');
+        modalbod.html('Please note that some gift cards are region specific. Make sure that your gift card is a USA version so we can redeem it properly.<br><br>Roblox Cards which redeem in ROBUX will result in a 34 Day Subscription.<br><br>Click continue to be redirected to the gift card payment page.');
+        modal.modal('toggle');
+        modalcontinue.attr("onclick","redir('https://sirhurt.net/autobuy/robuxnotice.html')");
+      }
+      else if(method == "collectables")
+      {
+        modaltitle.html('Purchase with Roblox Limiteds (Collectables)');
+        modalbod.html('Please note that to send collectables you need ROBLOX Premium and your trades need to be turned on via settings. Make sure you have enough RAP to send! (You can also add ROBUX to the trade).<br><br>Click continue to be redirected to the limited payment page.');
+        modal.modal('toggle');
+        modalcontinue.attr("onclick","redir('https://sirhurt.net/autobuy/tradepurchase.php')");
+      }
+      else if(type == "robux")
+      {
+        modaltitle.html('Purchase Robux');
+        modalbod.html('Key redemptions are first come first serve. Please note whomever posses a key can redeem robux when funds are avalible. We restock our funds as soon as possible and don\'t have exact estimates on hand due to how we posses ROBUX (Software purchases via robux, roblox card credit buildup) and therefor is unpredictable. Your keys stay valid until redemption, so if funds run out you can always redeem it when we get more back. If you don\'t redeem your key fast enough someone else might redeem theres, keep that in mind! We thank you for understanding :-)');
+        if($("#rbxamt").val() == "500")
+        {
+          modalcontinue.attr("onclick","redir('https://ashpokeman.selly.store/product/c74f6502')");
+        }
+        else if($("#rbxamt").val() == "1,000")
+        {
+          modalcontinue.attr("onclick","redir('https://ashpokeman.selly.store/product/43464cee')");
+        }
+        else if($("#rbxamt").val() == "5,000")
+        {
+          modalcontinue.attr("onclick","redir('https://ashpokeman.selly.store/product/9a6b62b9')");
+        }
+        else if($("#rbxamt").val() == "10,000")
+        {
+          modalcontinue.attr("onclick","redir('https://ashpokeman.selly.store/product/eccecf92')");
+        }
+        modal.modal('toggle');
+      }
+    }
+    $("#paymentmethodsub").on('change', function(){
+      if(this.value == "PayPal")
+      {
+        $("#subbtn").data("method","paypal");
+      }
+      else if(this.value == "Robux")
+      {
+        $("#subbtn").data("method","robux");
+      }
+      else if(this.value == "Debit/Credit Card")
+      {
+        $("#subbtn").data("method","dbc");
+      }
+      else if(this.value == "Apple Pay/Google Pay")
+      {
+        $("#subbtn").data("method","dbc");
+      }
+      else if(this.value == "Roblox Collectibles/Limiteds (Premium Only)")
+      {
+        $("#subbtn").data("method","collectables");
+      }
+      else if(this.value == "CashApp")
+      {
+        $("#subbtn").data("method","cashapp");
+      }
+    });
+    $("#paymentmethodlife").on('change', function(){
+      if(this.value == "PayPal")
+      {
+        $("#lifebtn").data("method","paypal");
+      }
+      else if(this.value == "Robux")
+      {
+        $("#lifebtn").data("method","robux");
+      }
+      else if(this.value == "Amazon Gift Card - USA")
+      {
+        $("#lifebtn").data("method","gc");
+      }
+      else if (this.value == "Roblox Gift Card")
+      {
+          $("#lifebtn").data("method","rgc");
+      }
+      else if(this.value == "Steam Gift Card - UK")
+      {
+        $("#lifebtn").data("method","gc");
+      }
+      else if(this.value == "Bitcoin")
+      {
+        $("#lifebtn").data("method","btc");
+      }
+      else if(this.value == "Debit/Credit Card")
+      {
+        $("#lifebtn").data("method","dbc");
+      }
+     else if(this.value == "Apple Pay/Google Pay")
+      {
+        $("#lifebtn").data("method","dbc");
+      }
+      else if(this.value == "Roblox Collectibles/Limiteds (Premium Only)")
+      {
+        $("#lifebtn").data("method","collectables");
+      }
+      else if(this.value == "CashApp")
+      {
+        $("#lifebtn").data("method","cashapp");
+      }
+    });
+    function redir(url){
+      window.location.href=url;
+    }
+            function redeemToken(){
+                var token = document.getElementById("token").value;
+                var referral = document.getElementById("ReferralUsername").value;
+                $.ajax({
+                    url: 'js-php/redeem.php',
+                    dataType: 'json',
+                    method: 'post',
+                    data: {
+                        token: token,
+                        referral: referral,
+                        type: 'redeemToken'
+                    },
+                    complete: function(resp) {
+                        $("#token").val('');
+                        var json = JSON.parse(resp.responseText);
+                        switch(json.status){
+                            case "good":
+                                toastr.success(json.param, "Success!");
+                                setTimeout(function() {
+                                    location.reload();
+                                }, 1000);
+                                break;
+                            case "bad":
+                                toastr.error(json.param, "Error!");
+                                break;
+                        }
+                    }
+                });
+            }
+            function submitVoucher(){
+                var voucher = document.getElementById("voucher").value;
+    
+                $.ajax({
+                    url: 'backend/js-php/user.php',
+                    dataType: 'json',
+                    method: 'post',
+                    data: {
+                        voucher: voucher,
+                        type: 'submitVoucher'
+                    },
+                    complete: function(resp) {
+                        $("#voucher").val('');
+                        var json = JSON.parse(resp.responseText);
+                        switch(json.status){
+                            case "good":
+                                toastr.success(json.param, "Success!");
+                                break;
+                            case "bad":
+                                toastr.error(json.param, "Error!");
+                                break;
+                        }
+                    }
+                });
+            }
+
+</script>
+
+<script>
+var stock = $("#robuxstock").html().replace(/\D/g,'');
+if(stock < 1000)
+{
+    $("#rbxbtn").attr("onclick","noStock()");
+}
+
+function noStock(){
+  var modal = $("#paymentModal");
+  var modaltitle = $("#paymentModalTitle");
+  var modalbod = $("#paymentModalBody");
+  var modalcontinue = $("#paymentModalContinue");
+  modaltitle.html("Low Stock");
+  modalbod.html("At the moment our stock is too low to purchase any Robux. We apologise for this inconvenience and appreciate your understanding.");
+  modalcontinue.attr("onclick","return false;");
+  modal.modal('toggle');
+}
+</script>
+
+</body>
+</html>

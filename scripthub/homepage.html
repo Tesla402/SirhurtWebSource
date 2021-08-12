@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SirHurt Scripthub | Home</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/Minimal-tabs-1.css">
+    <link rel="stylesheet" href="assets/css/Minimal-tabs.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Search-Form.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://www.sirhurt.net/login/assets/css/toastr.css" rel="stylesheet">
+    
+    <meta content="Asshurt is one of the most reliable tools on the market. Asshurt has expanded from beyond just a simple roblox cheat/roblox exploit/roblox hack with uses that expand farther than just a roblox exploit. It comes with a script executor! For the uses of this product, and its price, this program is a steal! We not only provide roblox exploits, but we are also a digital-games marketplace, providing very cheap robux at very low prices! We also offer roblox market services such as robux!" name="description">
+    <meta content="asshurt, asshurt roblox, asshurt exploit, ass hurt, asshurthosting, roblox exploit, roblox, exploit, robux, cheap robux, roblox market, roblox hack, sirhurt, roblox hacks, roblox script executor, roblox script execution, roblox hacks, roblox cheat, best roblox hacking apps, roblox exploits, cheap roblox hacks" name="keywords">
+    <link rel="shortcut icon" type="image/png" href="https://www.sirhurt.net/login/img/sirhurtlogo2.png" />
+</head>
+
+<body style="background: rgb(25,25,25);">
+    <main id="main" class="row justify-content-center h-100" role="role" style="color: rgb(0,0,0);padding-top: 44px;">
+        <div class="container my-auto">
+            <div class="card row justify-content-center" style="background: rgb(42, 42, 42);padding-right: auto;">
+                <div class="illustration"><img src="assets/img/SirHurt%20Logo%20Big%20Psd_2_Vector.png" style="display: block;margin-left: auto;margin-right: auto;width: 10%;margin-bottom: 0px;margin-top: 14px;"></div>
+                <h3 class="text-center" style="margin-bottom: 0px;margin-top: 8px;">Welcome, Username_Here!</h3>
+                <form class="search-form">
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-search"></i></span></div><input class="form-control" type="text" id="searchterm" onKeyPress="if(event.keyCode==13) return SearchItem();" placeholder="I am looking for..">
+                        <div class="input-group-append"><button class="btn btn-light" type="button" onclick="SearchItem();">Search </button></div>
+                    </div>
+                </form>
+                <hr style="background: #595959;">
+                <div id="minimal-tabs">
+                    <ul class="nav nav-tabs nav-justified" role="tablist">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1" style="color: rgb(193,193,193);">All Scripts</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2" style="color: rgb(193,193,193);">Installed Scripts</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3" style="color: rgb(193,193,193);">My Uploads</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-4" style="color: rgb(193,193,193);">Create Script</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" role="tabpanel" id="tab-1">
+                            <!-- INSERT_ROWS -->
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="tab-2">
+                            <!-- INSERT_ROWS 2 -->
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="tab-3">
+                            <!-- INSERT_ROWS 3 -->
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="tab-4">
+                            <section>
+                                <div style="margin-top: 5px;">
+                                    <h6 class="text-center" style="color: rgb(170,145,145);margin-bottom: 26px;">Warning: Script Hub uploads are subject to the Terms of Service. Abusing the Script Hub system, such as attempting to upload inappropriate scripts, or scripts which are not functional at the time of review may be subject to suspension of SirHurt services. By uploading a script, you agree that your content is appropriate for users of all ages, functional, safe and non malicious, serves a purpose, and is completely upheld by our Terms of Service. You have been warned.</h6>
+
+                                    
+                                    <div><label>Name of Script</label></div>
+                                    <div><input type="text" id="scriptname" style="width: 100%;"></div>
+                                </div>
+                                <div style="margin-top: 5px;">
+                                    <div><label>Script Tags</label></div>
+                                    <div><input type="text" id="scripttags" style="width: 100%;"></div>
+                                </div>
+                                <div style="margin-top: 5px;">
+                                    <div><label>Script Thumbnail (OPTIONAL, I.IMGUR.COM LINKS ONLY)</label></div>
+                                    <div><input type="text" id="scriptthumbnail" style="width: 100%;"></div>
+                                </div>
+                                <div style="margin-top: 5px;">
+                                    <div><label>Script Description</label></div>
+                                    <div><textarea id="scriptdesc" style="width: 100%;height: 98px;"></textarea></div>
+                                </div>
+                                <div style="margin-top: 5px;">
+                                    <div><label>Script Source</label></div>
+                                    <div><textarea id="scriptsrc" style="width: 100%;height: 120px;"></textarea></div>
+                                    <div class="row justify-content-center" id="login-cap"><div class="g-recaptcha" id="g-recaptcha" data-sitekey="6Lcy0-EUAAAAABSdY7UBDwYKWGeJ9GN5j61OoBth"></div></div>
+                                    <div><button class="btn btn-outline-primary" id="uploadscript" type="button" style="display: block;margin-left: auto;margin-right: auto;" onclick="submitScript();">Upload Script</button></div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <hr style="background: #595959;">
+                <div class="text-monospace text-right"><label style="font-size: 12px;padding-top: 0px;padding-bottom: 0px;margin-bottom: 0px;margin-top: 0px;">Page 1</label><button class="btn" id="backpage" type="button" style="color: rgb(255,255,255);">&lt;</button><button class="btn" id="nextpage" type="button" style="color: rgb(255,255,255);">&gt;</button></div>
+            </div>
+        </div>
+    </main>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    
+    <script>
+        function SearchItem()
+        {
+            var search_term = document.getElementById("searchterm").value;
+            
+            window.location.href = "https://sirhurt.net/scripthub/?search=" + encodeURIComponent(search_term);
+            window.location.assign("https://sirhurt.net/scripthub/?search=" + encodeURIComponent(search_term));
+            return false;
+        }
+    
+        function submitScript()
+        {
+                var script_name = document.getElementById("scriptname").value;
+                var script_tags = document.getElementById("scripttags").value;
+                var script_thumbnail = document.getElementById("scriptthumbnail").value;
+                var script_description = document.getElementById("scriptdesc").value;
+                var scriptsource = btoa(document.getElementById("scriptsrc").value);
+
+                $.ajax({
+                    url: 'ScriptHubHandler.php',
+                    dataType: 'json',
+                    method: 'post',
+                    data: {
+                        scriptname: script_name,
+                        scripttags: script_tags,
+                        scriptthumbnail: script_thumbnail,
+                        scriptdescription: script_description,
+                        script_source: scriptsource,
+                        captcha1: grecaptcha.getResponse(),
+                        type: 'createScript'
+                    },
+                    complete: function(resp) {
+                        var json = JSON.parse(resp.responseText);
+                        switch(json.status){
+                            case "good":
+                                toastr.success("Uploaded Script", "Success!");
+                                window.location.href = json.param;
+                                window.location.assign(json.param);
+                                return false;
+                                break;
+                            case "bad":
+                                toastr.error(json.param, "Error!");
+                                grecaptcha.reset();
+                                break;
+                        }
+                    }
+                });
+            }    
+    </script>
+    <script src="https://www.sirhurt.net/login/assets/js/toastr.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66239905-3">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-66239905-3');
+     </script>
+</body>
+
+</html>

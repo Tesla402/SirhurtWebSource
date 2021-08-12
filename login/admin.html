@@ -1,0 +1,2099 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/css/nav.css" rel="stylesheet">
+    <link href="assets/css/toastr.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="img/asshurt2.png" />
+    <style>
+.btn {
+    margin-top: 5px;
+}
+.card-header {
+    cursor: pointer;
+}
+.col-lg-6 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+    </style>
+    <title>Admin Panel - SirHurt</title>
+  </head>
+  <body>
+<div id="mySidenav" class="sidenav">
+  <div id="sidenavcontent">
+<span href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</span>
+  <div class="text-center">
+  <img src="sirhurtlogo.png" width="50px" height="50px">
+<hr>
+<p style="color:white;">USERNAMEHERE</p>
+<div class="text-muted">
+PACKAGETYPEHERE
+</div>
+</div>
+<hr>
+<a href="dashboard.php"><div class="material-icons">home</div> Home</a>
+<a href="faq.php"><div class="material-icons">help_outline</div> FAQ</a>
+<a href="purchase.php"><div class="material-icons">shopping_cart</div> Purchase</a>
+<a href="https://teespring.com/stores/sirhurt-store"><div class="material-icons">store</div> Merchandise</a>
+<a href="download.php"><div class="material-icons">get_app</div> Downloads</a>
+<a href="https://sirhurt.net/scripthub/"><div class="material-icons">api</div> Script-Hub</a>
+<!--TRIAL-->
+<a href="account.php"><div class="material-icons">account_box</div> Account</a>
+<a href="https://sirhurt.net/login/API.html"><div class="material-icons">api</div> API</a>
+<a href="https://sirhurt.net/TOS.html"><div class="material-icons">bookmark</div> Terms of Service</a>
+<a href="https://sirhurt.net/login/tickets/home.php"><div class="material-icons">confirmation_number</div> Ticket Center</a>
+<!--PARTNERSHIP-->
+<!--PARTNERREVIEW-->
+<!--STAFF DISCORD-->
+<a href="admin.php"><div class="material-icons">admin_panel_settings</div> Admin Panel</a>
+  </div>
+</div>
+<main role="main" id="main">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand" onclick="openNav()" id="opennav"><span style="font-size:30px;cursor:pointer">&#9776;</span></div>
+    <li class="nav-item align-middle" style="margin-right:20px;">
+<a style="color:white;" id="welcome">Welcome to SirHurt</a>
+</li>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+      <button class="btn btn-outline-danger" type="button" onclick="window.location.href='logout.php';">Logout</button>
+    </li>
+    </ul>
+  </nav>
+  <div class="col-md-3">
+  <div class="row colbox">
+  <div class="col-lg-4">
+<h1><span class="material-icons">favorite_border</span></h1>
+  </div>
+  <div class="col-lg-8">
+  <span>Status</span>
+  <h2>UPDATED</h2>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="row">
+<div class="col-lg-4">
+<h1><span class="material-icons">history</span></h1>
+</div>
+<div class="col-lg-8">
+<span>Version</span>
+<h2>VERSIONINFO</h2>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="row">
+<div class="col-lg-4">
+<h1><span class="material-icons">language</span></h1>
+</div>
+<div class="col-lg-8">
+<span>Current Sales Record - DATEHERE</span>
+<h2>RECORDDATA</h2>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="row">
+<div class="col-lg-4">
+<h1><span class="material-icons">how_to_reg</span></h1>
+</div>
+<div class="col-lg-8">
+<span>Total Users</span>
+<h2>SETREGLATER</h2>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div class="container-fluid row" id="containment">
+<div class="col-lg-6" id="info">
+<div class="card" style="max-height:500px;overflow:auto;">
+  <div class="card-header" data-toggle="collapse" data-target="#infobod" aria-expanded="false" aria-controls="infobod">
+    Information Lookup
+  </div>
+<div class="card-body collapse show" id="infobod">
+<ul class="list-group list-group-flush">
+<li class="list-group-item">
+<div class="form-group">
+<label for="moderationidentifier">Lookup User</label>
+<input type="text" id="moderationidentifier" class="form-control" placeholder="Username/Whitelist Key/Email/Discord ID">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" lookupInformation()">Lookup Information</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="serialklookupbox">Check SirHurt Whitelist Key</label>
+<input type="text" id="serialklookupbox" class="form-control" placeholder="Whitelist Key">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" checkSerialValid()">Check Key</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="robuxserialkeycheck">Check Robux Key</label>
+<input type="text" id="robuxserialkeycheck" class="form-control" placeholder="Robux Key">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" checkRobuxKeyValid()">Check Key</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="robuxusernamepurchase">Fetch Whitelist Key (Robux Purchase)</label>
+<input type="text" id="robuxusernamepurchase" class="form-control" placeholder="Roblox Username">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" lookupRobuxWhitelistKey()">Fetch Key</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="invoiceidpaypal">Fetch Whitelist Key (PayPal Purchase)</label>
+<input type="text" id="invoiceidpaypal" class="form-control" placeholder="Invoice ID">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" checkInvoiceId()">Fetch Key</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="cardsubmissionsusername">Fetch Whitelist Key (Gift Card Purchase)</label>
+<input type="text" id="cardsubmissionsusername" class="form-control" placeholder="ROBLOX Username/Email Address/Pin Number">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" checkCardHistory()">Fetch Key</button></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-6" id="edit">
+<div class="card" style="max-height:500px;overflow:auto;">
+  <div class="card-header" data-toggle="collapse" data-target="#editbod" aria-expanded="false" aria-controls="editbod">
+    Edit Account
+  </div>
+<div class="card-body collapse show" id="editbod">
+<ul class="list-group list-group-flush">
+<li class="list-group-item">
+<div class="form-group">
+<label for="emailpasswordresetidentifier">Email Password Reset</label>
+<input type="text" id="emailpasswordresetidentifier" class="form-control" placeholder="Username/Email/Whitelist Key">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" sendEmailPasswordReset()">Send Email</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="liftdiscordblockidentifier">Lift Discord Lock</label>
+<input type="text" id="liftdiscordblockidentifier" class="form-control" placeholder="Username/Email/Whitelist Key">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" liftDiscordLock()">Lift Lock</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="setdiscordidforsirhurtaccount">Manually Attach Discord ID</label>
+<input type="text" style="margin-top:3px;" id="setdiscordidforsirhurtaccount" class="form-control" placeholder="Username/Email/Whitelist Key">
+<input type="text" style="margin-top:3px;" id="newdiscordidforaccount" class="form-control" placeholder="Discord ID">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" setDiscordID()">Attach Discord ID</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="verifyEmailManual">Manually Verify Email</label>
+<input type="text" id="verifyEmailManual" class="form-control" placeholder="Username/Whitelist Key">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" VerifyEmailAddress()">Verify Email</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="generatepass">Reset Password</label>
+<input type="text" id="generatepass" class="form-control" placeholder="Username/Whitelist Key">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" generatePassword()">Reset Password</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="resetsecuritypin">Remove Security Pin</label>
+<input type="text" id="resetsecuritypin" class="form-control" placeholder="Username/Whitelist Key">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" removeSecurityPin()">Reset Security Pin</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="resetemailaddress">Reset Email</label>
+<input type="text" style="margin-top:3px;" id="resetemailaddress" class="form-control" placeholder="Username/Whitelist Key">
+<input type="text" style="margin-top:3px;" id="newemailaddress" class="form-control" placeholder="New Email Address">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" resetEmail()">Reset Email</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="resetemailaddress">Change Username</label>
+<input type="text" style="margin-top:3px;" id="changeusernameidentifier" class="form-control" placeholder="Username/Whitelist Key">
+<input type="text" style="margin-top:3px;" id="newusername" class="form-control" placeholder="New UserName">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" changeUsername()">Change Username</button></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-6" id="mod">
+<div class="card" style="max-height:500px;overflow:auto;">
+  <div class="card-header" data-toggle="collapse" data-target="#modbod" aria-expanded="false" aria-controls="modbod">
+    Moderation
+  </div>
+<div class="card-body collapse show" id="modbod">
+<ul class="list-group list-group-flush">
+<li class="list-group-item">
+<div class="form-group">
+<label for="flagwhitelist">Suspend User</label>
+<input type="text" style="margin-top:3px;" id="flagwhitelist" class="form-control" placeholder="Username/Whitelist Key">
+<input type="text" style="margin-top:3px;" id="gatherflagreason" class="form-control" placeholder="Suspension Reason">
+<input type="text" style="margin-top:3px;" id="suspensiondayscount" class="form-control" placeholder="Suspension Length (days) (0 = Lifetime)">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" flagAccount()">Suspend Account</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="unflagwhitelist">Lift Suspension</label>
+<input type="text" style="margin-top:3px;" id="unflagwhitelist" class="form-control" placeholder="Username/Whitelist Key">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" unflagAccount()">Lift Suspension</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="payoutborderid">Add Robux Payout Blacklist</label>
+<input type="text" style="margin-top:3px;" id="payoutborderid" class="form-control" placeholder="Selly Order ID">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" addPayoutRestriction()">Add Payout Restriction</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="referralblacklist">Disable Referrals</label>
+<input type="text" style="margin-top:3px;" id="referralblacklist" class="form-control" placeholder="Username/Whitelist Key">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" flagAccount()">Disable Referrals</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="removeaccount">Delete Account</label>
+<input type="text" style="margin-top:3px;" id="removeaccount" class="form-control" placeholder="Username/Whitelist Key">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" deleteAccount()">Delete Account</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="removeblacklistedemail">Lift Email Block</label>
+<input type="text" style="margin-top:3px;" id="removeblacklistedemail" class="form-control" placeholder="Email">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" deleteBlacklistedEmail()">Lift Block</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="exclusionusername">Add Sharing Exclusion</label>
+<input type="text" style="margin-top:3px;" id="exclusionusername" class="form-control" placeholder="SirHurt Username">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" excludeAccount()">Add Account Sharing Exclusion</button></div>
+</div>
+</li>
+
+
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="removepartnerads">Delete Partner Ads</label>
+<input type="text" style="margin-top:3px;" id="removepartnerads" class="form-control" placeholder="Partners SirHurt Username">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" deletePartnerAdHistory()">Delete Ad History</button></div>
+</div>
+</li>
+
+
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-6" id="key">
+<div class="card" style="max-height:500px;overflow:auto;">
+  <div class="card-header" data-toggle="collapse" data-target="#keybod" aria-expanded="false" aria-controls="keybod">
+    Key Management
+  </div>
+<div class="card-body collaspe show" id="keybod">
+<ul class="list-group list-group-flush">
+<li class="list-group-item">
+<div class="form-group">
+<label for="generatekey">Generate Windows Key</label>
+<select id="generatekey" class="form-control">
+<option selected disabled>Select Type</option>
+<option>HWID</option>
+<option>SUBSCRIPTION</option>
+</select>
+<input type="text" class="form-control" placeholder="Days Valid For" style="margin-top:3px;" id="subdayscount">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" generateSerialKey()">Generate Windows Key</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="generatekey2">Generate macOS Key</label>
+<select id="generatekey2" class="form-control">
+<option selected disabled>Select Type</option>
+<option>HWID</option>
+<option>SUBSCRIPTION</option>
+</select>
+<input type="text" class="form-control" placeholder="Days Valid For" style="margin-top:3px;" id="subdayscount2">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" generateSerialKey2()">Generate macOS Key</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="generaterobuxkey">Generate Robux Key</label>
+<input type="text" class="form-control" placeholder="Robux Amount" id="generaterobuxkey">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" GenerateRobuxKey()">Generate Robux Key</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="flagwhitelistkey">Suspend SirHurt Key</label>
+<input type="text" style="margin-top:3px;" id="flagwhitelistkey" class="form-control" placeholder="Whitelist Key">
+<input type="text" style="margin-top:3px;" id="flagreasonserialkey" class="form-control" placeholder="Suspension Reason">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" flagSirHurtKey()">Suspend Whitelist Key</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="flagwhitelistkey">Suspend Robux Key</label>
+<input type="text" style="margin-top:3px;" id="flagrobuxkey" class="form-control" placeholder="Robux Key">
+<input type="text" style="margin-top:3px;" id="flagreasonrobuxkey" class="form-control" placeholder="Suspension Reason">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" flagRobuxKey()">Suspend Robux Key</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="flagwhitelistkey2">Unsuspend SirHurt Key</label>
+<input type="text" id="flagwhitelistkey2" class="form-control" placeholder="Whitelist Key">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" unflagSirHurtKey()">Unsuspend Whitelist Key</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="flagwhitelistkey">Unsuspend Robux Key</label>
+<input type="text" id="flagrobuxkey2" class="form-control" placeholder="Robux Key">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" unflagRobuxKey()">Unsuspend Robux Key</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="removeserialkeywhitelist">Delete Whitelist Key</label>
+<input type="text" class="form-control" placeholder="Whitelist Key" id="removeserialkeywhitelist">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" deleteSerialKey()">Delete Whitelist Key</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="removeserialkeyrobux">Delete Robux Key</label>
+<input type="text" class="form-control" placeholder="Robux Key" id="removeserialkeyrobux">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" deleteRobuxSerial()">Delete Robux Key</button></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-6" id="staff">
+<div class="card" style="max-height:500px;overflow:auto;">
+  <div class="card-header" data-toggle="collapse" data-target="#staffbod" aria-expanded="false" aria-controls="staffbod">
+    Manage Staff
+  </div>
+<div class="card-body collapse show" id="staffbod">
+<ul class="list-group list-group-flush">
+<li class="list-group-item">
+<div class="form-group">
+<label for="setaccesslevelidentifier">Set Permissions</label>
+<input type="text" id="setaccesslevelidentifier" class="form-control" placeholder="Username/Whitelist Key">
+<select id="setaccesslevel" style="margin-top:3px;" class="form-control">
+<option disabled selected>Select Level</option>
+<option>Normal</option>
+<option>Former Staff</option>
+<option>Youtube Partner</option>
+<option>Moderator</option>
+<option>Supervisor</option>
+<option>Admin</option>
+<option>Developer</option>
+<option>Upper Management</option>
+<option>Secretary</option>
+<option>Sales Representative</option>
+<option>Vice Head of Operations</option>
+</select>
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" setPermissions()">Update Permissions</button></div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="gatheraltidentifier">Alt Check</label>
+<input type="text" id="gatheraltidentifier" class="form-control" placeholder="Username/IP/Email">
+<select id="gatheraltidentifiertype" style="margin-top:3px;" class="form-control">
+<option disabled selected>Select Type</option>
+<option>username</option>
+<option>ip</option>
+<option>email</option>
+<option>discord</option>
+</select>
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" gatherAltAccounts()">Gather Alternate Accounts</button></div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="blackliststaffwhitelist">Blacklist Staff Promotion</label>
+<input type="text" style="margin-top:3px;" id="blackliststaffwhitelist" class="form-control" placeholder="Username/Whitelist Key">
+<input type="text" style="margin-top:3px;" id="flagblacklistreason" class="form-control" placeholder="Blacklist Reason">
+<div class="row justify-content-center"><button class="btn btn-info" onclick="blacklistStaffMember()">Blacklist Staff Account</button></div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="unblackliststaffwhitelist">Unblacklist Staff Promotion</label>
+<input type="text" style="margin-top:3px;" id="unblackliststaffwhitelist" class="form-control" placeholder="Username/Whitelist Key">
+<div class="row justify-content-center"><button class="btn btn-info" onclick="unblacklistStaffMember()">Unblacklist Staff Account</button></div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="staffwatchlistidentifier">Add Staff to Watchlist</label>
+<input type="text" style="margin-top:3px;" id="staffwatchlistidentifier" class="form-control" placeholder="Username/Whitelist Key">
+<div class="row justify-content-center"><button class="btn btn-info" onclick="addToStaffWatchlist()">Add Staff to Watchlist</button></div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="unstaffwatchlistidentifier">Remove Staff Watchlist Entry</label>
+<input type="text" style="margin-top:3px;" id="unstaffwatchlistidentifier" class="form-control" placeholder="Username/Whitelist Key">
+<div class="row justify-content-center"><button class="btn btn-info" onclick="removeToStaffWatchlist()">Remove User From Staff Watchlist</button></div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="gatherstafflogidentifier">Gather Staff Logs</label>
+<input type="text" id="gatherstafflogidentifier" class="form-control" placeholder="Username/IP/Command">
+<select id="gatherstafflogidentifiertype" style="margin-top:3px;" class="form-control">
+<option disabled selected>Select Type</option>
+<option>username</option>
+<option>ip</option>
+<option>command</option>
+</select>
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" gatherStaffLog()">Gather Logs</button></div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="resolvedticketsbyuser">Lookup Resolved Tickets</label>
+<input type="text" id="resolvedticketsbyuser" class="form-control" placeholder="Username/Whitelist Key/Email/Discord ID">
+<div class="row justify-content-center"><button class="btn btn-info" onclick="lookupResolvedTickets()">Fetch Resolved Tickets</button></div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="genstaff">Generate Staff List</label>
+<div class="row justify-content-center" id="genstaff"><button class="btn btn-info" onclick=" generateStaffList()">Generate Staff List</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="genreferral">Generate Referrals List</label>
+<div class="row justify-content-center" id="genreferral"><button class="btn btn-info" onclick=" generateReferralsList()">Generate Referrals List</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="genstaff">Demote All Staff</label>
+<div class="row justify-content-center" id="demotestaff"><button class="btn btn-info" onclick=" demoteAllStaff()">Demote All Staff</button></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-6" id="dev">
+<div class="card" style="max-height:500px;overflow:auto;">
+  <div class="card-header" data-toggle="collapse" data-target="#devbod" aria-expanded="false" aria-controls="devbod">
+    Developer Tools
+  </div>
+<div class="card-body collapse show" id="devbod">
+<ul class="list-group list-group-flush">
+<li class="list-group-item">
+<div class="form-group">
+<label for="gatherstafflogidentifier">Gather Usage Logs</label>
+<input type="text" id="gatherlogfileidentifier" class="form-control" placeholder="Username/WindowTitle/HWID">
+<select id="gatherlogfileidentifiertype" style="margin-top:3px;" class="form-control">
+<option disabled selected>Select Type</option>
+<option>USERNAME</option>
+<option>WINDOWTITLE</option>
+<option>HWID</option>
+</select>
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" gatherLogs()">Gather Logs</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="gathersalesdatadate">Gather Sales Data</label>
+<input type="text" class="form-control" placeholder="Year-Month-Day" id="gathersalesdatadate">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" gatherSalesData()">Gather Sales Data</button></div>
+</div>
+</li>
+
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="gatherrobuxpurchasedatadate">Gather Robux Purchase Data</label>
+<input type="text" class="form-control" placeholder="" id="gatherrobuxpurchasedatadate">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" gatherRobuxPurchaseData()">Gather Robux Purchase Data</button></div>
+</div>
+</li>
+
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="delstaffrobuxserials">Delete Staff Made Robux Serials</label>
+<div class="row justify-content-center" id="delstaffrobuxserials"><button class="btn btn-info" onclick=" deleteStaffRobuxSerials()">Delete all Staff-Made ROBUX Serials</button></div>
+</div>
+</li>
+
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="delstaffsirhurtserials">Delete Staff Made SirHurt Serials</label>
+<div class="row justify-content-center" id="delstaffsirhurtserials"><button class="btn btn-info" onclick=" deleteStaffSirHurtSerials()">Delete all Staff-Made SirHurt Serials</button></div>
+</div>
+</li>
+<li class="list-group-item">
+<div class="form-group">
+<label for="roblosecurity">Update RobloSecurity</label>
+<input type="text" class="form-control" placeholder="RobloSecurity" id="roblosecurity">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" updateRobloSecurity()">Update RobloSecurity</button></div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="roblosecurity">Update User ID</label>
+<input type="text" class="form-control" placeholder="My current UserId" id="currentuserid">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" updateUserId()">Update UserId</button></div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="robloxgroupid">Update GroupID</label>
+<input type="text" class="form-control" placeholder="GroupID" id="robloxgroupid">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" updateGroupId()">Update Group ID</button></div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="systemmessage">Update System Message</label>
+<input type="text" class="form-control" placeholder="System Message" id="systemmessage">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" updateSystemMessage()">Update System Message</button></div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="systemannouncement">Post SirHurt Announcement</label>
+<input type="text" class="form-control" placeholder="System Announcement" id="systemannouncement">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" BroadcastSystemMessage()">Post Dashboard Announcement</button></div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="form-group">
+<label for="robloxgroupid">Email Staff Robux Rewards</label>
+<input type="text" class="form-control" value="100" id="rewardamounttosend">
+<div class="row justify-content-center"><button class="btn btn-info" onclick=" sendRewardEmails()">Send Reward Emails</button></div>
+</div>
+</li>
+
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div class="text-center" style="margin-top:20px;color:white;"><a class="btn btn-info" style="cursor:pointer;" onclick="resetCards();">Reset Cards</a></div>
+</main>
+<footer class="container" style="padding:30px;">
+  <p>&copy; SirHurt 2020</p>
+</footer>
+<div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body" id="adminModalBody">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="assets/js/nav.js"></script>
+<!--<script src="assets/js/idle_timer_logout.js"></script>-->
+
+<script>
+var sPositions = localStorage.positions || "{}",
+    positions = JSON.parse(sPositions);
+$(".col-lg-6").draggable({
+    containment: "body",
+    scroll: false,
+    stop: function (event, ui) {
+        positions[this.id] = ui.position;
+        localStorage.positions = JSON.stringify(positions);
+    }
+});
+$.each(positions, function (id, pos) {
+    $("#" + id).css(pos)
+});
+var sCollapses = localStorage.collapses || "{}",
+    collapses = JSON.parse(sCollapses);
+$('.card-body').on('hidden.bs.collapse', function () {
+    collapses[this.id] = "hidden";
+    localStorage.collapses = JSON.stringify(collapses);
+});
+$('.card-body').on('shown.bs.collapse', function () {
+    collapses[this.id] = "shown";
+    localStorage.collapses = JSON.stringify(collapses);
+})
+if(sCollapses != "{}"){
+$.each(collapses, function (id, stat) {
+    if(stat == "hidden")
+    {
+        $("#" + id).removeClass("show");
+    }
+});}
+function resetCards(){
+    localStorage.clear();
+    window.location.reload();
+}
+function complete(text){
+    $("#adminModal").modal("show");
+    $("#adminModalBody").html(text);
+}
+$('#adminModal').on('hidden.bs.modal', function (e) {
+  $("#adminModalBody").html("Processing request...");
+})
+
+        function changeUsername(){
+            var oldidentifier = document.getElementById("changeusernameidentifier").value;
+            var newu = document.getElementById("newusername").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    newusername: newu,
+                    type: 'changeusername'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Account's Username has been reset.", "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function resetEmail(){
+            var oldidentifier = document.getElementById("resetemailaddress").value;
+            var emailaddress = document.getElementById("newemailaddress").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    email: emailaddress,
+                    type: 'resetemail'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Account email has been reset.", "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function generatePassword(){
+            var oldidentifier = document.getElementById("generatepass").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'resetpass'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Account password has been reset.", "Success!");
+                            complete(json.param);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+         function removeSecurityPin(){
+            var oldidentifier = document.getElementById("resetsecuritypin").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'resetsecuritypin'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Account password has been reset.", "Success!");
+                            complete(json.param);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function VerifyEmailAddress()
+        {
+            var oldidentifier = document.getElementById("verifyEmailManual").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'verifyEmail'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+
+        function gatherSalesData(){
+            var oldidentifier = document.getElementById("gathersalesdatadate").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'gathersales'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Found Sales Data", "Success!");
+                            complete(json.param);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function gatherRobuxPurchaseData(){
+            var oldidentifier = document.getElementById("gatherrobuxpurchasedatadate").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'gatherRobuxPurchaseCost'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Found Data Handler Payout Data", "Success!");
+                            complete(json.param);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function updateGroupId(){
+            var oldidentifier = document.getElementById("robloxgroupid").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'updategroupid'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Successfully updated GroupID", "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function updateSystemMessage(){
+            var oldidentifier = document.getElementById("systemmessage").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'update_system_message'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Successfully updated System Message!", "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function BroadcastSystemMessage()
+        {
+            var oldidentifier = document.getElementById("systemannouncement").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'post_sirhurt_announcement'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Successfully updated System Message!", "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function sendRewardEmails(){
+            var oldidentifier = document.getElementById("rewardamounttosend").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'sendstaffrewards'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Successfully sent Emails", "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function updateUserId(){
+            var oldidentifier = document.getElementById("currentuserid").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'updateuserid'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Successfully updated UserId", "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function updateRobloSecurity(){
+            var oldidentifier = document.getElementById("roblosecurity").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'updateroblosecurity'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Successfully updated RobloSecurity", "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function setPermissions(){
+            var oldidentifier = document.getElementById("setaccesslevelidentifier").value;
+            var accesslevel = document.getElementById("setaccesslevel").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    permissions: accesslevel,
+                    type: 'setPermissions'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function deletePartnerAdHistory()
+        {
+            var oldidentifier = document.getElementById("removepartnerads").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'removePartnerAdHistory'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function deleteAccount(){
+            var oldidentifier = document.getElementById("removeaccount").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'remove'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+
+        function deleteRobuxSerial(){
+            var oldidentifier = document.getElementById("removeserialkeyrobux").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'removerobuxserial'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function deleteSerialKey(){
+            var oldidentifier = document.getElementById("removeserialkeywhitelist").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'removewhitelistserial'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function deleteBlacklistedEmail(){
+            var oldidentifier = document.getElementById("removeblacklistedemail").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'liftemailban'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function gatherLogs(){
+            var oldidentifier = document.getElementById("gatherlogfileidentifier").value;
+            var identifiertype = document.getElementById("gatherlogfileidentifiertype").value;
+            
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    iden_type: identifiertype,
+                    type: 'gatherLogs'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            var element = document.createElement('a');
+                            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(json.param));
+                            element.setAttribute('download', "logdata.txt");
+                            element.style.display = 'none';
+                            document.body.appendChild(element);
+                            element.click();
+                            document.body.removeChild(element);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function gatherStaffLog(){
+            var oldidentifier = document.getElementById("gatherstafflogidentifier").value;
+            var identifiertype = document.getElementById("gatherstafflogidentifiertype").value;
+            
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    iden_type: identifiertype,
+                    type: 'gatherstafflogs'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            var element = document.createElement('a');
+                            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(json.param));
+                            element.setAttribute('download', "logdata.txt");
+                            element.style.display = 'none';
+                            document.body.appendChild(element);
+                            element.click();
+                            document.body.removeChild(element);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function gatherAltAccounts(){
+            var oldidentifier = document.getElementById("gatheraltidentifier").value;
+            var identifiertype = document.getElementById("gatheraltidentifiertype").value;
+            
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    iden_type: identifiertype,
+                    type: 'staffAltCheck'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Found user account(s)", "Success!");
+                            complete(json.param);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function demoteAllStaff(){
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: "N/A",
+                    type: 'clearAllStaff'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function deleteStaffSirHurtSerials()
+        {
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: "N/A",
+                    type: 'deleteStaffGeneratedSirHurtKeys'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function deleteStaffRobuxSerials()
+        {
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: "N/A",
+                    type: 'deleteStaffGeneratedRobuxKeys'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function generateStaffList(){
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: "N/A",
+                    type: 'generateStaffList'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            var element = document.createElement('a');
+                            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(json.param));
+                            element.setAttribute('download', "logdata.txt");
+                            element.style.display = 'none';
+                            document.body.appendChild(element);
+                            element.click();
+                            document.body.removeChild(element);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+            function generateReferralsList(){
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: "N/A",
+                    type: 'generateReferralList'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            var element = document.createElement('a');
+                            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(json.param));
+                            element.setAttribute('download', "logdata.txt");
+                            element.style.display = 'none';
+                            document.body.appendChild(element);
+                            element.click();
+                            document.body.removeChild(element);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function checkSerialValid(){
+            var oldidentifier = document.getElementById("serialklookupbox").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'checkredeem'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function flagAccount(){
+            var oldidentifier = document.getElementById("flagwhitelist").value;
+            var flagreason = document.getElementById("gatherflagreason").value;
+            var daysfor = document.getElementById("suspensiondayscount").value;
+
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    reason: encodeURI(flagreason),
+                    daysfor: daysfor,
+                    type: 'flag'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function flagSirHurtKey(){
+            var oldidentifier = document.getElementById("flagwhitelistkey").value;
+            var flagreason = document.getElementById("flagreasonserialkey").value;
+
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    reason: encodeURI(flagreason),
+                    type: 'flagwhitelistkey'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+         function flagRobuxKey()
+         {
+            var oldidentifier = document.getElementById("flagrobuxkey").value;
+            var flagreason = document.getElementById("flagreasonrobuxkey").value;
+
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    reason: encodeURI(flagreason),
+                    type: 'flagrobuxkey'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function unflagRobuxKey()
+        {
+            var oldidentifier = document.getElementById("flagrobuxkey2").value;
+
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'unflagrobuxkey'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function unflagSirHurtKey()
+        {
+            var oldidentifier = document.getElementById("flagwhitelistkey2").value;
+
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'unflagwhitelistkey'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function unblacklistStaffMember()
+        {
+            var oldidentifier = document.getElementById("unblackliststaffwhitelist").value;
+
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'removeBlacklistedPromotion'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function blacklistStaffMember()
+        {
+            var oldidentifier = document.getElementById("blackliststaffwhitelist").value;
+            var flagreason = document.getElementById("flagblacklistreason").value;
+
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    reason: encodeURI(flagreason),
+                    type: 'addBlacklistedPromotion'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function addToStaffWatchlist()
+        {
+            var oldidentifier = document.getElementById("staffwatchlistidentifier").value;
+
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'addStaffWatchList'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function removeToStaffWatchlist()
+        {
+            var oldidentifier = document.getElementById("unstaffwatchlistidentifier").value;
+
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'removeStaffWatchList'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function checkInvoiceId(){
+            var oldidentifier = document.getElementById("invoiceidpaypal").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'checkorderid'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Successfully fetched information!", "Success!");
+                            complete(json.param);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function checkCardHistory(){
+            var oldidentifier = document.getElementById("cardsubmissionsusername").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'checkcardorder'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            complete(json.param);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function checkRobuxKeyValid(){
+            var oldidentifier = document.getElementById("robuxserialkeycheck").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'checkrobuxkeyvalid'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+
+        function lookupRobuxWhitelistKey(){
+            var oldidentifier = document.getElementById("robuxusernamepurchase").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'lookuprobuxpurchasekey'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            complete(json.param);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+
+        function liftDiscordLock(){
+            var oldidentifier = document.getElementById("liftdiscordblockidentifier").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'liftdiscordlock'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function setDiscordID(){
+            var oldidentifier = document.getElementById("setdiscordidforsirhurtaccount").value;
+            var discordid2 = document.getElementById("newdiscordidforaccount").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    discordid: discordid2,
+                    type: 'manualsetdiscord'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function addPayoutRestriction(){
+            var oldidentifier = document.getElementById("payoutborderid").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'addPayoutRestriction'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function unflagAccount(){
+            var oldidentifier = document.getElementById("unflagwhitelist").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'unflag'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function excludeAccount()
+        {
+            var oldidentifier = document.getElementById("exclusionusername").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'add_account_sharing_exclusion'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function blacklistReferral(){
+            var oldidentifier = document.getElementById("referralblacklist").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'referralBlacklist'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+
+        function unblacklistReferral(){
+            var oldidentifier = document.getElementById("referralunblacklist").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'referralunBlacklist'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function lookupResolvedTickets()
+        {
+            var oldidentifier = document.getElementById("resolvedticketsbyuser").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'resolvedticketsbyuser'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            complete(json.param);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function lookupInformation(){
+            var oldidentifier = document.getElementById("moderationidentifier").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'wlinfo'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Found account information!", "Success!");
+                            complete(json.param);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function sendEmailPasswordReset()
+        {
+            var oldidentifier = document.getElementById("emailpasswordresetidentifier").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'emailpasswordreset'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function generateSerialKey(){
+            var oldidentifier = document.getElementById("generatekey").value;
+            var daysvalidfor = document.getElementById("subdayscount").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    validfor: daysvalidfor,
+                    type: 'generateKey'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Successfully generated key!", "Success!");
+                            complete(json.param);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function generateSerialKey2(){
+            var oldidentifier = document.getElementById("generatekey2").value;
+            var daysvalidfor = document.getElementById("subdayscount2").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    validfor: daysvalidfor,
+                    type: 'generatemacOSKey'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Successfully generated key!", "Success!");
+                            complete(json.param);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+        
+        function GenerateRobuxKey(){
+            var oldidentifier = document.getElementById("generaterobuxkey").value;
+            $.ajax({
+                url: 'js-php/adminpanel.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    identifier: oldidentifier,
+                    type: 'generateRobuxKey'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success("Successfully generated ROBUX key!", "Success!");
+                            complete(json.param);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        }
+
+        function resetHwid() {
+            $.ajax({
+                url: 'js-php/hwidlock.php',
+                dataType: 'json',
+                method: 'post',
+                data: {
+                    type: 'resetHwid'
+                },
+                complete: function(resp) {
+                    var json = JSON.parse(resp.responseText);
+                    switch(json.status){
+                        case "good":
+                            toastr.success(json.param, "Success!");
+                            setTimeout(function() {
+                                location.reload();
+                            }, 1000);
+                            break;
+                        case "bad":
+                            toastr.error(json.param, "Error!");
+                            break;
+                    }
+                }
+            });
+        };
+</script>
+<script src="assets/js/toastr.js"></script>
+</body>
+</html>

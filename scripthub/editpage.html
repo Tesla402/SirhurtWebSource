@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Web Scripthub Edit Page</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Minimal-tabs-1.css">
+    <link rel="stylesheet" href="assets/css/Minimal-tabs.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Search-Form.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://www.sirhurt.net/login/assets/css/toastr.css" rel="stylesheet">
+    
+    <meta content="Asshurt is one of the most reliable tools on the market. Asshurt has expanded from beyond just a simple roblox cheat/roblox exploit/roblox hack with uses that expand farther than just a roblox exploit. It comes with a script executor! For the uses of this product, and its price, this program is a steal! We not only provide roblox exploits, but we are also a digital-games marketplace, providing very cheap robux at very low prices! We also offer roblox market services such as robux!" name="description">
+    <meta content="asshurt, asshurt roblox, asshurt exploit, ass hurt, asshurthosting, roblox exploit, roblox, exploit, robux, cheap robux, roblox market, roblox hack, sirhurt, roblox hacks, roblox script executor, roblox script execution, roblox hacks, roblox cheat, best roblox hacking apps, roblox exploits, cheap roblox hacks" name="keywords">
+    <link rel="shortcut icon" type="image/png" href="https://www.sirhurt.net/login/img/sirhurtlogo2.png" />
+</head>
+
+<body style="background: rgb(25,25,25);">
+    <main id="main" class="row justify-content-center h-100" role="role" style="color: rgb(0,0,0);padding-top: 44px;">
+        <div class="container my-auto">
+            <div class="card row justify-content-center" style="background: rgb(42, 42, 42);padding-right: auto;">
+                <div class="illustration"><img src="assets/img/SirHurt%20Logo%20Big%20Psd_2_Vector.png" style="display: block;margin-left: auto;margin-right: auto;width: 10%;margin-bottom: 0px;margin-top: 14px;"></div>
+                <h4 style="text-align: center;margin-top: 13px;">Editing Script #SCRIPTIDREPLACE</h4>
+                <hr style="background: #595959;">
+                <section>
+                    <div style="margin-top: 5px;">
+                        <h6 class="text-center" style="color: rgb(170,145,145);margin-bottom: 26px;">Warning: Script Hub uploads are subject to the Terms of Service. Abusing the Script Hub system, such as attempting to upload inappropriate scripts, or scripts which are not functional at the time of review may be subject to suspension of SirHurt services. By uploading a script, you agree that your content is appropriate for users of all ages, functional, safe and non malicious, serves a purpose, and is completely upheld by our Terms of Service. You have been warned.</h6>
+                        
+                        <div><label>Name of Script</label></div>
+                        <div><input type="text" id="scriptname" style="width: 100%;"></div>
+                    </div>
+                    <div style="margin-top: 5px;">
+                        <div><label>Script Tags</label></div>
+                        <div><input type="text" id="scripttags" style="width: 100%;"></div>
+                    </div>
+                    <div style="margin-top: 5px;">
+                        <div><label>Script Thumbnail (OPTIONAL, I.IMGUR.COM LINKS ONLY)<br></label></div>
+                        <div><input type="text" id="scriptthumbnail" style="width: 100%;"></div>
+                    </div>
+                    <div style="margin-top: 5px;">
+                        <div><label>Script Description</label></div>
+                        <div><textarea id="scriptdesc" style="width: 100%;height: 98px;"></textarea></div>
+                    </div>
+                    <div style="margin-top: 5px;">
+                        <div><label>Script Source</label></div>
+                        <div><textarea id="scriptsrc" style="width: 100%;height: 120px;"></textarea></div>
+                        <div class="row justify-content-center" id="login-cap"><div class="g-recaptcha" id="g-recaptcha" data-sitekey="6Lcy0-EUAAAAABSdY7UBDwYKWGeJ9GN5j61OoBth"></div></div>
+                        <div><button class="btn btn-outline-primary" id="editscript" type="button" style="display: block;margin-left: auto;margin-right: auto;" onclick="editScript();">Edit Script</button></div>
+                    </div>
+                </section>
+                <hr style="background: #595959;">
+            </div>
+        </div>
+    </main>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        function editScript()
+        {
+                var script_name = document.getElementById("scriptname").value;
+                var script_tags = document.getElementById("scripttags").value;
+                var script_thumbnail = document.getElementById("scriptthumbnail").value;
+                var script_description = document.getElementById("scriptdesc").value;
+                var scriptsource = btoa(document.getElementById("scriptsrc").value);
+
+                $.ajax({
+                    url: 'ScriptHubHandler.php',
+                    dataType: 'json',
+                    method: 'post',
+                    data: {
+                        scriptname: script_name,
+                        scripttags: script_tags,
+                        scriptthumbnail: script_thumbnail,
+                        scriptdescription: script_description,
+                        script_source: scriptsource,
+                        scriptid: 'SCRIPTIDREPLACE',
+                        captcha1: grecaptcha.getResponse(),
+                        type: 'editScript'
+                    },
+                    complete: function(resp) {
+                        var json = JSON.parse(resp.responseText);
+                        switch(json.status){
+                            case "good":
+                                toastr.success("Uploaded Script", "Success!");
+                                window.location.href = json.param;
+                                window.location.assign(json.param);
+                                return false;
+                                break;
+                            case "bad":
+                                toastr.error(json.param, "Error!");
+                                grecaptcha.reset();
+                                break;
+                        }
+                    }
+                });
+            }    
+    </script>
+    <script src="https://www.sirhurt.net/login/assets/js/toastr.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+    <head>
+        <title>Asshurt Purchase</title>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+
+	<link href="font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="buystyle02.css" rel="stylesheet"><!--<link href="teal.css" rel="stylesheet">-->
+	<link href="responsive.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+        <style>
+            body{
+                 padding: 7%;
+                 background: #1a5493;
+
+            }
+            #CardPage {
+                color: white;
+                text-align: center;
+                line-height: 25px;
+                transform: translate(-4%);
+            }
+            lab{
+                display:inline-block;
+                width:200px;
+                margin-right:30px;
+                text-align:right;
+            }
+            .input {
+                color: black;
+                width: 20%;
+            }
+            fieldset{
+                border:none;
+                width:100%;
+                margin:0px auto;
+            }
+            .g-recaptcha {
+                display: inline-block;
+            }
+        </style>
+        <link href="asshurt2.png" rel="icon">
+    </head>
+    
+    <body>
+        <img style="display:block;margin-left:auto;margin-right:auto;width:30%;padding:2%;" src="https://vgy.me/I219gH.png">
+        <h1 style="text-align:center;color:white;">Thanks for taking interest in our products! Please fill out the fields below.</h1>
+        <h4 style="text-align:center;color:white;">This is not an automatic purchase method. Trades are reviewed within 3 days. (You must have a builders club membership to send trades.) We only accept clean limiteds, you may only send a trade with concent from the owner of the limiteds. <a target='_blank' href="https://www.roblox.com/users/16796/profile"><font color="#ff8e52">--> (Click here for the account to send the limiteds/RAP to via trade) <--</font></a></h4>
+        <h4 style="text-align:center;color:white;">We judge the limiteds based on there estimated value. The amount of keys emailed will be determined on our own estimated value for an item. (The bigger and better the limited, the more keys you will be emailed.) (We can deny your trade for any reason without notice, and the amount of keys will be completely determined by us. You can always request specific things in the buyers comment section.). For package 2, the (value) should match at least 5,000 ROBUX. For subscription, it should match at least 3,000 ROBUX. Trades may need to be resent if another trade was sent & accepted for the same item.</h4>
+        <h4 style="text-align:center;color:white;">By clicking submit / sending the trade, you agree that you are the rightful owner (or have the concent of the rightful owner) of every single item or ROBUX used within the trade.</h4>
+
+        <img style="display:block;margin-left:auto;margin-right:auto;padding:2%;" src="https://i.imgur.com/Q6Zr13Y.png">
+        <img style="display:block;margin-left:auto;margin-right:auto;padding:2%;" src="https://i.imgur.com/YG0IWv7.png">
+
+            <form method="POST" action="./submitlimited.php">
+                <div id="CardPage">
+                    <fieldset>
+                        <lab for="emailaddress">Email Address:</lab><input type="text" name="emailaddress" class="input" value="" required="required"><br>
+                        <lab for="robloxusername">ROBLOX Username:</lab><input type="text" name="robloxusername" class="input" value="" required="required"><br>
+                        <lab for="comments">Comments/Requests:</lab><input type="text" name="comments" class="input" value=""><br>
+                        <br><br>
+                   </fieldset>
+                </div>
+                <center><div class="g-recaptcha" data-sitekey="6LdfpTEUAAAAAB4NxdPzj-xZNP7n_Lw1ZtQNSTpM"></div><br><br></center>
+                <center><input type="submit" class="secondary-button secondary-button-inverse" value="Submit"></center>
+            </form>
+    </body>
+</html>
